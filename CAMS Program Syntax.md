@@ -13,6 +13,7 @@ Hopefully this channel can provide a decent overview of how CAMS functions under
 
 
 † In the case of an eventual self-replicating machine items may have to be unnamed as the process is currently not automatable. This would lead to the use of a more traditional opcode model in which discrete amounts of unnamed items would be decoded into program information to be executed. Alternatively, items may be ditched entirely in favour of create redstone for easier code replication. Time will tell...
+
 †† In the future it may be less efficient to keep items in cases involving recursion, as jump instructions would take O(N) time to execute instead of O(1) in the case of more traditional program memory structures. For now, items remain the fastest and easiest to work with.
 
 ### General Syntax
@@ -76,8 +77,11 @@ Note: If you don't need to execute a statement if the condition evaluates to fal
 
 
 † This is currently achieved by reading forward (and overflowing) until the desired label is detected. While this technique is less efficient, the benefits of an item-based architecture make this worth doing.
+
 †† `,` is implemented by having two separate physical 'slots' where instruction data can be written to, with the item acting as a multiplexer between them. The evaluation of the condition will reset whatever is written in either the 'true' slot or the 'false' slot depending on the result.
+
 ††† Any I/O items, Timer values, and Label values can be used, but Instruction items cannot.
+
 †††† Pointer values will often be labelled as `Arg0`-`ArgN`, but a special label will be designated to subroutine return labels, which will take the form `ReturnLabel`. The function of either pointer type is entirely the same, only differing in name to make the return label distinct.
 
 ### Storage Systems / Processing Automation
