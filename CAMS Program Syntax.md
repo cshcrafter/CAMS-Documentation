@@ -13,7 +13,6 @@ Hopefully this channel can provide a decent overview of how CAMS functions under
 
 
 † In the case of an eventual self-replicating machine items may have to be unnamed as the process is currently not automatable. This would lead to the use of a more traditional opcode model in which discrete amounts of unnamed items would be decoded into program information to be executed. Alternatively, items may be ditched entirely in favour of create redstone for easier code replication. Time will tell...
-
 †† In the future it may be less efficient to keep items in cases involving recursion, as jump instructions would take O(N) time to execute instead of O(1) in the case of more traditional program memory structures. For now, items remain the fastest and easiest to work with.
 
 ### General Syntax
